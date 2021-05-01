@@ -12,7 +12,7 @@ class Content(models.Model):
 
     plot = models.TextField(default='')
     release_date = models.DateField()
-    poster = models.ImageField()
+    # poster = models.ImageField(upload_to="posters")
 
     action = '액션'
     thriller = '스릴러'
