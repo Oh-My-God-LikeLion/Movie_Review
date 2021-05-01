@@ -1,0 +1,8 @@
+<h1>My Mood Diary</h1>
+
+<a href="{% url 'new' %}">내 기분을 일기로 작성하기</a><br><br>
+{% for post in post_list %}
+    <a href = "{% url 'detail' index=post.pk %}">{{ post.title }}</a>
+    <br>
+    <hr>
+{% endfor %}
