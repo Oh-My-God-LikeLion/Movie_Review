@@ -35,4 +35,4 @@ class Content(models.Model):
         choices=GENRE_CHOICES,
         default=action
     )
-    score = models.IntegerField(default=0)
+    score = models.IntegerField(default=100)

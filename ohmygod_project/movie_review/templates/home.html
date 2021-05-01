@@ -1,8 +1,41 @@
-<h1>My Mood Diary</h1>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<style>
+    @font-face {
+    font-family: 'JSDongkang-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/JSDongkang-RegularA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Recipekorea';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+    *   {
+    font-family: 'JSDongkang-Regular';
+    color: "red";
+}
+h1 {
+    font-family: 'Recipekorea';
+}
+b {
+    font-size: 24px;
+}
 
-<a href="{% url 'new' %}">내 기분을 일기로 작성하기</a><br><br>
-{% for post in post_list %}
-    <a href = "{% url 'detail' index=post.pk %}">{{ post.title }}</a>
+
+</style>
+</head>
+
+<h1>Our Movies</h1>
+
+<h2><a href="{% url 'new' %}">영화 감상평 작성</a></h2><br><br>
+{% for post in posts_list %}
+    <b><a href = "{% url 'detail' index=post.pk %}">{{ post.title }}</a></b>
+    <p>{{post.pub_date}}</p>
+    <section>{{post.review|slice:"30"}} <br>......</section>
     <br>
     <hr>
 {% endfor %}

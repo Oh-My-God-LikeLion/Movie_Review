@@ -1,16 +1,41 @@
-<h1>일기 내용 자세히 보기</h1>
+<style>
+    @font-face {
+    font-family: 'JSDongkang-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/JSDongkang-RegularA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Recipekorea';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+    *   {
+    font-family: 'JSDongkang-Regular';
+    color: "red";
+	background-color: palegoldenrod;
+}
+h1 {
+	font-family: 'Recipekorea';
+}
+span {
+	color: crimson;
+}
+</style>
+
+<h1> {{ post.title }} </h1> <br>
 <div class = "posts">
 	{% if post.pub_date %}
 	<div class = "date">
-		{{ post.pub_date }}
+		<span>작성일:</span> {{ post.pub_date }}
 	</div>
 	{% endif %}
-	<h1> {{ post.title }}</h1>
-    <h3>{{post.score}}</h3>
-    <p>{{post.release_date}}</p>
-    <p>{{post.genre}}</p>
-    <p>{{post.plot}}</p>
-	<p> {{ post.review|linebreaks }}</p>
+    <p><span>평점:</span> {{post.score}}</p>
+    <p><span>개봉일:</span> {{post.release_date}}</p>
+    <p><span>장르:</span> {{post.genre}}</p>
+    <p><span>줄거리</span><br>{{post.plot}}</p>
+	<p><span>느낀점</span><br>{{ post.review|linebreaks }}</p>
 </div>
 
 <a href="{% url 'edit' index=post.pk %}">수정하기</a><br>
