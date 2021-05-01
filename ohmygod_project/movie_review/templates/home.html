@@ -18,6 +18,12 @@
     font-family: 'JSDongkang-Regular';
     color: "red";
 }
+body {
+    background-image: url(https://img.animalplanet.co.kr/news/2019/06/26/700/af74fzou1x6t01qqm843.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 h1 {
     font-family: 'Recipekorea';
 }
@@ -25,17 +31,30 @@ b {
     font-size: 24px;
 }
 
-
+.white-background{
+    background-color: rgba(255,255,255,0.8);
+    /* opacity: 80%; */
+}
+h2 a{
+    color: rgb(168, 58, 95);
+}
+a {
+    color: teal;
+}
 </style>
 </head>
 
+<body>
 <h1>Our Movies</h1>
 
 <h2><a href="{% url 'new' %}">영화 감상평 작성</a></h2><br><br>
 {% for post in posts_list %}
+    <div class="white-background">
     <b><a href = "{% url 'detail' index=post.pk %}">{{ post.title }}</a></b>
     <p>{{post.pub_date}}</p>
-    <section>{{post.review|slice:"30"}} <br>......</section>
+    <section>{{post.review|slice:"70"}} <br>......</section>
     <br>
+    </div>
     <hr>
 {% endfor %}
+</body>

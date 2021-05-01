@@ -18,25 +18,38 @@
 }
 h1 {
 	font-family: 'Recipekorea';
+	font-size: 45px;
 }
 span {
 	color: crimson;
 }
+.flex-container{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+img {
+	margin-left: 300px;	
+}
+a {
+	color:teal;
+}
 </style>
 
 <h1> {{ post.title }} </h1> <br>
+<img src="{{ post.poster.url }}">
 <div class = "posts">
-	{% if post.pub_date %}
-	<div class = "date">
-		<span>작성일:</span> {{ post.pub_date }}
+    <div class="flex-container">
+		<p><span>평점:</span> {{post.score}}</p>
+    	<p><span>개봉일:</span> {{post.release_date}}</p>
+    	<p><span>장르:</span> {{post.genre}}</p>
 	</div>
-	{% endif %}
-    <p><span>평점:</span> {{post.score}}</p>
-    <p><span>개봉일:</span> {{post.release_date}}</p>
-    <p><span>장르:</span> {{post.genre}}</p>
-    <p><span>줄거리</span><br>{{post.plot}}</p>
-	<p><span>느낀점</span><br>{{ post.review|linebreaks }}</p>
+    	<p><span>줄거리</span><br>{{post.plot}}</p>
+		<p><span>느낀점</span><br>{{ post.review|linebreaks }}</p>
 </div>
-
+{% if post.pub_date %}
+			<span>작성일:</span> {{ post.pub_date }}
+		{% endif %}
+<br><br><br>
 <a href="{% url 'edit' index=post.pk %}">수정하기</a><br>
 <a href="{% url 'delete' pk=post.pk %}">삭제하기</a><br>
