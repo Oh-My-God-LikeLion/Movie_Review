@@ -11,7 +11,7 @@
     font-weight: normal;
     font-style: normal;
 }
-    *   {
+* {
     font-family: 'JSDongkang-Regular';
     color: "red";
 	background-color: palegoldenrod;
@@ -23,17 +23,28 @@ h1 {
 span {
 	color: crimson;
 }
-.flex-container{
+.flex-container {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 }
 img {
-	margin-left: 300px;	
+	margin-left: 250px;	
 }
-a {
-	color:teal;
+
+.buttons {
+	float: left;
+	
 }
+
+.buttons a button {
+	background-color:pink;
+	height: 30px;
+	width: 70px;
+	margin-right: 5px;
+	border-radius: 7px;
+}
+
 </style>
 
 <h1> {{ post.title }} </h1> <br>
@@ -51,5 +62,7 @@ a {
 			<span>작성일:</span> {{ post.pub_date }}
 		{% endif %}
 <br><br><br>
-<a href="{% url 'edit' index=post.pk %}">수정하기</a><br>
-<a href="{% url 'delete' pk=post.pk %}">삭제하기</a><br>
+<div class="buttons">
+	<a href="{% url 'edit' index=post.pk %}"><button>수정하기</button></a>
+	<a href="{% url 'delete' pk=post.pk %}"><button>삭제하기</button></a>
+</div>

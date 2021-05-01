@@ -11,7 +11,7 @@ class Content(models.Model):
     review = models.TextField(default='')
 
     plot = models.TextField(default='')
-    release_date = models.DateField()
+    release_date = models.DateField(default=timezone.now)
     poster = models.ImageField(blank=True, upload_to="posters/")
 
     action = '액션'
